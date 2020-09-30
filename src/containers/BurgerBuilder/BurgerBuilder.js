@@ -1,7 +1,9 @@
 import React ,{Component ,Fragment} from 'react';
 import Burger from  '../../components/Burger/Burger';
 import BurgerControllers from '../../components/BurgerController/BurgerControllers/BurgerControllers';
-import Modal from '../../components/UI/Modal/Modal'
+import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import Backdrop from '../../components/UI/Backdrop/Backdrop';
 
 class BurgerBuilder extends Component{
 
@@ -92,10 +94,18 @@ class BurgerBuilder extends Component{
 
                <Fragment>
 
-               
+                { this.state.isOrderNowCliked ? 
+
+                <Backdrop click={this.OrderNowHandler} /> : null }
                   
-                {this.state.isOrderNowCliked ? <Modal Ingredients={this.state.ingredients} Total={this.state.totalCost} 
-                 OrderBtnClicked={this.OrderNowHandler}/> :null }
+                <Modal show={this.state.isOrderNowCliked}>
+
+                  <OrderSummary Ingredients={this.state.ingredients} Total={this.state.totalCost} 
+                  OrderBtnClicked={this.OrderNowHandler}/>
+
+                </Modal>  
+                  
+                  
 
                  
                  <Burger ingredients={this.state.ingredients}/>
