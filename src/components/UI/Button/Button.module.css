@@ -1,0 +1,17 @@
+.Button{
+  
+      padding: .5rem .6rem;
+      margin: 1rem;
+      color: white;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+}
+
+.Danger{
+    background-color: red;
+}
+.Success{
+    background-color: green;
+}
